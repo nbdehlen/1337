@@ -5,6 +5,6 @@ export const theme = extendTheme({
     body: 'Roboto',
   },
   breakpoints: {
-    sm: '500px',
+    sm: '510px',
   },
 })

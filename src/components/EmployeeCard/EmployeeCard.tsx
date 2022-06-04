@@ -3,8 +3,7 @@ import { Box, BoxProps, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import Socials from './Socials'
 import { Employee } from '../../../types'
-
-const FALLBACK_IMG = 'https://placeimg.com/240/300/animals'
+import fallbackImg from '../../../public/assets/dog.jpg'
 
 type OwnProps = {
   employee: Employee
@@ -16,7 +15,7 @@ const EmployeeCard: FunctionComponent<Props> = ({
   employee: { gitHub, stackOverflow, twitter, linkedIn, imagePortraitUrl, name, office },
   ...boxProps
 }) => {
-  const portraitWithFallback = imagePortraitUrl || FALLBACK_IMG
+  const portraitWithFallback = imagePortraitUrl || fallbackImg
   const officeWithFallback = `Office: ${office || 'The beach'}`
   const socials = {
     ...(gitHub && { gitHub }),
@@ -42,6 +41,8 @@ const EmployeeCard: FunctionComponent<Props> = ({
         height="100%"
         width="75%"
         layout="responsive"
+        placeholder="blur"
+        blurDataURL="../../../public/assets/placeholder.jpg"
         style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
       />
       <Box px={2} pt={2}>
