@@ -15,3 +15,7 @@ export type Employee = {
   highlighted: null | boolean
   published: boolean
 }
+
+export type EmployeeMeta = {
+  total: number
+}

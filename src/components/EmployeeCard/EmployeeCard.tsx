@@ -3,7 +3,7 @@ import { Box, BoxProps, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import Socials from './Socials'
 import { Employee } from '../../../types'
-import fallbackImg from '../../../public/assets/dog.jpg'
+import fallbackImg from '../../../public/images/dog.jpg'
 
 type OwnProps = {
   employee: Employee
@@ -42,16 +42,14 @@ const EmployeeCard: FunctionComponent<Props> = ({
         width="75%"
         layout="responsive"
         placeholder="blur"
-        blurDataURL="../../../public/assets/placeholder.jpg"
+        blurDataURL="/images/placeholder.jpg"
         style={{ borderTopLeftRadius: 6, borderTopRightRadius: 6 }}
       />
       <Box px={2} pt={2}>
-        <Text fontSize={{ base: '2xl', sm: 'xl' }} fontWeight="500">
+        <Text fontSize={{ base: '2xl', sm: 'xl' }} fontWeight="400">
           {name}
         </Text>
-        <Text fontSize={{ base: 'md', sm: 'sm' }} fontFamily="roboto">
-          {officeWithFallback}
-        </Text>
+        <Text fontSize={{ base: 'md', sm: 'sm' }}>{officeWithFallback}</Text>
         <Socials socials={socials} />
       </Box>
     </Box>

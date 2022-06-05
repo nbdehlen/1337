@@ -2,11 +2,7 @@ import cacheData from 'memory-cache'
 import type { Employee } from '../../types'
 import exampleData from '../../exampleData.json'
 
-const employeesEndpoint = '/v3/employees'
-const URL = process.env.TRETTON_BASE_URL + employeesEndpoint
-
-// TODO: send with refreshed date to make sure first and subsequent partial
-// fetches are from the same cache? maybe memory-cache has something built in?
+const URL = process.env.TRETTON_API_EMPLOYEES
 
 export default async function getEmployeesCached(): Promise<Employee[] | undefined> {
   const value: Employee[] = cacheData.get(URL)
