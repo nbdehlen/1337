@@ -1,21 +1,24 @@
 import cacheData from 'memory-cache'
 import type { Employee } from '../../types'
-import exampleData from '../../exampleData.json'
+import axios from 'axios'
 
-const URL = process.env.TRETTON_API_EMPLOYEES
+const URL = process.env.TRETTON_API_EMPLOYEES ?? ''
+const API_KEY = process.env.TRETTON_API_KEY ?? ''
+const EMPLOYEES = 'employees'
 
 export default async function getEmployeesCached(): Promise<Employee[] | undefined> {
-  const value: Employee[] = cacheData.get(URL)
+  const value: Employee[] = cacheData.get(EMPLOYEES)
   if (value) {
-    console.log(`CACHE ${URL} HAS VALUE`)
     return value
   } else {
-    console.log(`CACHE ${URL} DOES NOT HAVE VALUE`)
     const hours = 24
 
-    const res = { data: exampleData }
+    const res = await axios.get(URL, {
+      headers: {
+        Authorization: API_KEY,
+      },
+    })
 
-    cacheData.put(URL, res.data, hours * 1000 * 60 * 60)
-    return res.data
+    cacheData.put(EMPLOYEES, res.data, hours * 1000 * 60 * 60)
   }
 }
