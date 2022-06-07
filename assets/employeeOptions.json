@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Name",
+    "key": "name",
+    "sortAs": "string"
+  },
+  {
+    "name": "Office",
+    "key": "office",
+    "sortAs": "string"
+  }
+]

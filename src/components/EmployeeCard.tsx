@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import { Box, BoxProps, Text } from '@chakra-ui/react'
 import Image from 'next/image'
-import Socials from './Socials'
-import { Employee } from '../../../types'
-import fallbackImg from '../../../public/images/dog.jpg'
+import Socials from './atoms/Socials'
+import { Employee } from '../../types'
+import fallbackImg from '../../public/images/dog.jpg'
 
 type OwnProps = {
   employee: Employee
