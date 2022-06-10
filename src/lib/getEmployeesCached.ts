@@ -13,12 +13,13 @@ export default async function getEmployeesCached(): Promise<Employee[] | undefin
   } else {
     const hours = 24
 
-    const res = await axios.get(URL, {
+    const { data } = await axios.get(URL, {
       headers: {
         Authorization: API_KEY,
       },
     })
 
-    cacheData.put(EMPLOYEES, res.data, hours * 1000 * 60 * 60)
+    cacheData.put(EMPLOYEES, data, hours * 1000 * 60 * 60)
+    return data
   }
 }
